@@ -1,0 +1,19 @@
+.root {
+  padding: 0 3rem 1rem 3rem;
+}
+.row {
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.reportCard {
+  width: calc(95% / 4);
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.lbl {
+  font-size: 1.2rem;
+}

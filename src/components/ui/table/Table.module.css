@@ -1,0 +1,106 @@
+.tableContainer {
+  width: 100%;
+  max-height: 80vh;
+  overflow: auto;
+  position: relative;
+  border: 1px solid rgba(213, 213, 213, 0.145);
+}
+
+.table {
+  border-collapse: separate; /* Changed from collapse for sticky headers */
+  width: max-content;
+  table-layout: auto; /* default – columns size to content */
+}
+
+/* Make the entire header row sticky */
+.tableHead {
+  position: sticky;
+  top: 0;
+  z-index: 2; /* Higher than body content */
+  background-color: rgb(59, 59, 59);
+}
+
+.tableHeader {
+  border-bottom: 1px solid rgba(213, 213, 213, 0.145);
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #d1d5db;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.sortButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 15px;
+  color: #d1d5db;
+}
+
+.sortButton:focus {
+  outline: none;
+}
+.tableTitle {
+  font-size: 0.8rem;
+  padding-bottom: 10px;
+  color: rgb(181, 181, 181);
+}
+
+.downloadButton {
+  color: #64a8ec;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.downloadButton:hover {
+  color: #94bee8;
+}
+
+.filterContainer {
+  margin-top: 0.25rem;
+}
+
+.filterInput {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  font-size: 0.875rem;
+  background-color: transparent;
+  box-shadow: rgba(171, 171, 171, 0.02) 0px 1px 3px 0px,
+    rgba(172, 197, 222, 0.15) 0px 0px 0px 1px;
+  color: #b4b4b4;
+}
+
+.filterInput:focus {
+  border-color: #b5b5b5;
+  outline: none;
+}
+
+.tableBody {
+  position: relative; /* Helps with z-index stacking */
+  z-index: 1; /* Lower than header */
+}
+
+.tableRow {
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #595959;
+}
+.tableRow:nth-child(odd) {
+  background-color: #4b4b4b;
+}
+
+.tableCell {
+  padding: 0.5rem 1.5rem;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  color: rgba(209, 213, 219, 0.656);
+}

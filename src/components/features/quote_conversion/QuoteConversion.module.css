@@ -1,0 +1,8 @@
+.root {
+  width: 25%;
+}
+.chart {
+  gap: 1.5rem;
+  padding: 1.5rem 0 0.9rem 0;
+  justify-content: center;
+}

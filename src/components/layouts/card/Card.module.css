@@ -1,0 +1,23 @@
+.card {
+  padding: 1rem;
+  border-radius: 6px;
+  /* min-width: fit-content; */
+  background-color: var(--color6);
+  border: solid 1px var(--color5);
+}
+.header {
+  align-items: center;
+}
+.title {
+  color: var(--color8);
+  font-size: 0.9rem;
+}
+.link {
+  margin-left: auto;
+  font-size: 10px;
+  cursor: pointer;
+  color: var(--color9);
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}

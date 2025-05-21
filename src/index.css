@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* ==== Modern CSS Reset ==== */
+
+/* 1. Box-sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* 3. Remove list styles on ul/ol by default */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* 4. Set core body defaults */
+html {
+  line-height: 1.5; /* sensible line-height */
+  -webkit-text-size-adjust: 100%; /* prevent font inflation on mobile */
+}
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+/* 5. Make images & media scale */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form elements */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Remove built-in form field focus outline (customise if needed!) */
+:focus {
+  outline: none;
+}
+
+/* 8. Anchor tag reset */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 9. Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* 10. Remove number input spinners in WebKit */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+}
+
+/* ==== End Reset ==== */
+:root {
+  --color1: #f39523;
+  --color2: #0088fe;
+  --color3: #8884d8;
+  --color4: #00c49f;
+  --color5: rgba(176, 191, 202, 0.166);
+  --color6: #303030;
+  --color7: #8cacbfe9;
+  --color8: #b0b0b0;
+  --color9: rgba(194, 221, 242, 0.453);
+  --color10: #c42727;
+  /* --color10: rgba(216, 235, 249, 0.67); */
+  --font1: 0.7rem;
+}
+h1,
+h2 {
+  font-family: "Gabarito", sans-serif;
+}
+h1,
+h2 {
+  font-weight: 600; /* or 700 for extra emphasis */
+}
+h3 {
+  font-size: 1rem;
+  color: var(--color7);
+}
+.color1 {
+  background-color: var(--color1);
+}
+.color2 {
+  background-color: var(--color2);
+}
+.color3 {
+  background-color: var(--color3);
+}
+.color4 {
+  background-color: var(--color4);
+}
+.date {
+  font-size: 0.7rem;
+  font-weight: 300;
+  padding-left: 5px;
+}

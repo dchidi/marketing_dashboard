@@ -1,0 +1,47 @@
+.vbar {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-self: baseline;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  color: #ffffff;
+}
+.vlbl,
+.tlbl,
+.lblSM {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-size: var(--font1);
+}
+.vlbl {
+  top: 0.5rem;
+}
+.lblSM {
+  top: -1rem;
+}
+.tlbl {
+  bottom: -16px;
+  color: var(--color8);
+}
+
+.hroot {
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.hbar {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-self: baseline;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  color: #ffffff;
+  border-radius: 100px;
+}
+.vhlbl,
+.thlbl {
+  font-size: var(--font1);
+}

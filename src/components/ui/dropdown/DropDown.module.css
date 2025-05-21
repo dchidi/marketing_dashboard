@@ -1,0 +1,52 @@
+.root {
+  /* align-items: center;
+  justify-content: center; */
+  /* gap: 10px; */
+  border: solid 2px var(--color5);
+  padding: 0.5rem;
+  border-radius: 6px;
+  color: var(--color7);
+  min-width: 100px;
+  width: fit-content;
+  /* cursor: pointer; */
+  position: relative;
+}
+.selected {
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* border: solid 2px var(--color5); */
+  /* padding: 0.5rem; */
+  /* border-radius: 6px; */
+  /* color: var(--color7); */
+  /* min-width: 100px; */
+  /* width: fit-content; */
+  cursor: pointer;
+}
+.dropdown {
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  background-color: var(--color6);
+  z-index: 3;
+  border-radius: 6px;
+  border: solid 2px var(--color5);
+  padding: 10px;
+  min-width: 250px;
+  width: fit-content;
+}
+ul.dropdown li {
+  padding-bottom: 20px;
+  font-size: 0.9rem;
+  padding-left: 10px;
+  cursor: pointer;
+}
+ul.dropdown li:first-child {
+  padding-top: 10px;
+}
+.hideMenu {
+  display: none;
+}
+.showMenu {
+  display: block;
+}

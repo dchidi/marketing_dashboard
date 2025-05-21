@@ -1,0 +1,87 @@
+/* ========== DEFAULT STYLES ========== */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.896);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: rgb(59, 59, 59);
+  padding: 30px;
+  padding-top: 2rem;
+  padding-top: 3rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.modalClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+/* ========== SMALL AND MEDIUM DEVICES (Tablets, landscape mode, 576px - 767px) ========== */
+@media only screen and (max-width: 767px) {
+  .modalContent {
+    max-width: 500px;
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 777px) {
+  .modalContent {
+    min-width: 500px;
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1599px) {
+}
+@media only screen and (min-width: 768px) {
+}
+
+/* ========== 4K+ LARGE SCREENS (1600px and above) ========== */
+@media only screen and (min-width: 1599px) and (max-width: 1999px) {
+}
+
+@media only screen and (min-width: 2000px) {
+}
+
+/* ========== SMALL DEVICES (Phones, portrait mode, < 576px) ========== */
+@media only screen and (max-width: 575px) {
+}
+
+/* ========== MEDIUM DEVICES (Tablets, landscape mode, 576px - 767px) ========== */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+}
+
+/* ========== LARGE DEVICES (Tablets, small laptops, 768px - 991px) ========== */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+
+/* ========== EXTRA LARGE DEVICES (Laptops, desktops, 992px - 1199px) ========== */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* ========== ULTRA WIDE SCREENS (Desktops, 1200px - 1599px) ========== */
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+}
+
+/* ========== LANDSCAPE MODE (for all devices) ========== */
+@media only screen and (orientation: landscape) {
+}
+
+/* ========== DARK MODE SUPPORT ========== */
+@media (prefers-color-scheme: dark) {
+}
