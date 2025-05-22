@@ -9,6 +9,7 @@ interface CardProps {
   title?: string;
   hasViewData?: boolean;
   viewDataCallback?: VoidFunction;
+  onClick?: VoidFunction;
 }
 const Card: React.FC<CardProps> = ({
   children,
@@ -16,10 +17,11 @@ const Card: React.FC<CardProps> = ({
   title,
   hasViewData = true,
   viewDataCallback,
+  onClick,
 }) => {
   return (
     <>
-      <div className={`${styles.card} ${className}`}>
+      <div className={`${styles.card} ${className}`} onClick={onClick}>
         <Row className={styles.header}>
           <span className={styles.title}>{title}</span>
           {hasViewData && (

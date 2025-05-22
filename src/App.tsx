@@ -8,7 +8,7 @@ const Home = lazy(() => import("./pages/Home"));
 const DashboardLayout = lazy(
   () => import("./components/features/DashboardLayout")
 );
-const Report = lazy(() => import("./pages/dashboard/Report"));
+const Report = lazy(() => import("./pages/dashboard/report/Report"));
 const Settings = lazy(() => import("./pages/dashboard/Settings"));
 
 const App: React.FC = () => {

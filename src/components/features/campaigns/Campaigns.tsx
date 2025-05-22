@@ -65,7 +65,7 @@ const Campaigns: React.FC = () => {
         </h3>
         <Row gap="20px" className={styles.items}>
           {CampaignData.map((item) => (
-            <CampaignItem {...item} />
+            <CampaignItem {...item} key={item.id} />
           ))}
         </Row>
       </Card>
