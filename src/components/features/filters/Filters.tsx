@@ -5,10 +5,13 @@ import { SingleSelect } from "../../ui/dropdown/DropDown";
 import type { DropDownPropsWithId } from "../../ui/dropdown/types";
 import styles from "./Filters.module.css";
 import { useFilterLocalStore } from "../../../hooks/useFilterLocalStore";
-import { MdOutlineClear } from "react-icons/md";
+import { useState } from "react";
 
 const Filters = () => {
-  const { filterPrefs, deleteFilter, saveFilter } = useFilterLocalStore();
+  const [brandList, setBrandList] = useState(BRANDS);
+  const [countryList, setCountryList] = useState(COUNTRIES);
+
+  const { filterPrefs, saveFilter } = useFilterLocalStore();
   const callback = (
     item: DropDownPropsWithId | null,
     formFieldName: string
@@ -34,6 +37,18 @@ const Filters = () => {
     // }
   };
 
+  const countryHandler = (
+    item: DropDownPropsWithId | null,
+    formFieldName: string
+  ): void => {
+    console.log(item, formFieldName);
+    const brands = brandList.filter((brand) =>
+      brand?.country_code?.includes(item?.code ?? "")
+    );
+    setBrandList(brands);
+    saveFilter({ [formFieldName]: item?.code });
+  };
+
   const applyFilterHandler = () => {
     console.log("apply filter button clicked", filterPrefs);
   };
@@ -41,14 +56,14 @@ const Filters = () => {
   return (
     <Row gap="10px" className={styles.filters}>
       <SingleSelect
-        data={COUNTRIES}
-        defaultValue={COUNTRIES[0]}
-        selectHandler={callback}
+        data={countryList}
+        defaultValue={countryList[0]}
+        selectHandler={countryHandler}
         formFieldName="country"
       />
       <SingleSelect
-        data={BRANDS}
-        defaultValue={BRANDS[0]}
+        data={brandList}
+        defaultValue={brandList[0]}
         selectHandler={callback}
         formFieldName="brand"
       />
@@ -71,9 +86,6 @@ const Filters = () => {
         onClick={applyFilterHandler}
       >
         <FaLongArrowAltRight />
-      </button>
-      <button className={styles.filterBtn} type="button" onClick={deleteFilter}>
-        <MdOutlineClear />
       </button>
     </Row>
   );

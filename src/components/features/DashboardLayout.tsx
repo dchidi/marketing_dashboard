@@ -6,8 +6,9 @@ export default function DashboardLayout() {
   const { logout } = useAuth();
   return (
     <div>
-      {/* <h1>Dashboard</h1>
       <button onClick={logout}>Log Out</button>
+      {/* <h1>Dashboard</h1>
+      
       <nav>
         <Link to="home">Dashboard</Link> |<Link to="profile">Profile</Link> |{" "}
         <Link to="settings">Settings</Link>

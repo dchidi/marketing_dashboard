@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { Column, Row } from "../components/layouts/row_col/RowCol";
+import styles from "./css/Login.module.css";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -12,23 +14,39 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+    <Row className={styles.root}>
+      <Column className={styles.left}>
+        <div className={styles.displayName}>
+          <h3>Marketing CRM</h3>
+          <h2>Petcover</h2>
+        </div>
+        <img
+          src="./1.png"
+          alt="dashboard"
+          loading="lazy"
+          draggable="false"
+          className={styles.img}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Log In</button>
-      </form>
-    </div>
+      </Column>
+      <Column className={styles.right}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <h3 className={styles.title}>Login</h3>
+
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">Log In</button>
+        </form>
+      </Column>
+    </Row>
   );
 }
