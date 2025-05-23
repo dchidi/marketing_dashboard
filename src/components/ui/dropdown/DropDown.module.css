@@ -29,7 +29,7 @@
   border-radius: 6px;
   border: solid 2px var(--color5);
   padding: 10px;
-  min-width: 250px;
+  min-width: 180px;
   width: fit-content;
 }
 ul.dropdown li {

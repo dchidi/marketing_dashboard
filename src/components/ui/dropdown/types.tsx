@@ -4,10 +4,15 @@ export type DropDownProps = {
 };
 export interface DropDownPropsWithId extends DropDownProps {
   id: number | null;
+  country_code?: string[];
 }
 export interface SingleSelectProps {
   defaultValue: DropDownPropsWithId;
   data: DropDownPropsWithId[];
-  selectHandler: (item: DropDownPropsWithId) => void;
+  selectHandler: (
+    item: DropDownPropsWithId | null,
+    formFieldName: string
+  ) => void;
   className?: string;
+  formFieldName: string;
 }

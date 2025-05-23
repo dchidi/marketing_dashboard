@@ -1,10 +1,10 @@
 export const COUNTRIES = [
-  { id: 1, code: "all", name: "ALL REGION" },
-  { id: 2, code: "uk", name: "UNITED KINGDOM" },
-  { id: 3, code: "at", name: "AUSTRIA" },
-  { id: 4, code: "de", name: "GERMANY" },
-  { id: 5, code: "au", name: "AUSTRALIA" },
-  { id: 6, code: "nz", name: "NEW ZEALAND" },
+  { id: 1, code: "all", name: "All Regions" },
+  { id: 2, code: "uk", name: "United Kingdom" },
+  { id: 3, code: "at", name: "Austria" },
+  { id: 4, code: "de", name: "Germany" },
+  { id: 5, code: "au", name: "Australia" },
+  { id: 6, code: "nz", name: "New Zealand" },
 ];
 
 export const DATEFILTERS = [
@@ -17,24 +17,31 @@ export const DATEFILTERS = [
 export const BRANDS = [
   {
     id: 1,
+    code: "all",
+    name: "All Brands",
+    country_code: ["all", "au", "nz", "de", "at", "uk"],
+  },
+  {
+    id: 2,
     code: "petcover",
     name: "Petcover",
     country_code: ["all", "au", "nz", "de", "at"],
   },
   {
-    id: 2,
+    id: 3,
     code: "bpis",
-    name: "British Pet Insurance Services",
+    name: "BPIS",
     country_code: ["all", "uk"],
   },
-  { id: 3, code: "pet_id", name: "PetID", country_code: ["all", "uk"] },
-  { id: 4, code: "bbc", name: "BB Commercial", country_code: ["all", "uk"] },
-  { id: 5, code: "ed", name: "Exotic Direct", country_code: ["all", "uk"] },
+  { id: 4, code: "pet_id", name: "PetID", country_code: ["all", "uk"] },
+  { id: 5, code: "bbc", name: "BB Commercial", country_code: ["all", "uk"] },
+  { id: 6, code: "ed", name: "Exotic Direct", country_code: ["all", "uk"] },
 ];
 
-export const ANIMALTYPE = [
-  { id: 1, code: "cat", name: "Cat" },
-  { id: 2, code: "dog", name: "Dog" },
-  { id: 3, code: "horse", name: "Horse" },
-  { id: 4, code: "exotic", name: "Exotic" },
+export const PET_TYPE = [
+  { id: 1, code: "all", name: "All Pet Types" },
+  { id: 2, code: "cat", name: "Cat" },
+  { id: 3, code: "dog", name: "Dog" },
+  { id: 4, code: "horse", name: "Horse" },
+  { id: 5, code: "exotic", name: "Exotic" },
 ];

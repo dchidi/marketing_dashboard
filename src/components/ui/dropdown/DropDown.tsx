@@ -2,30 +2,50 @@ import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import styles from "./DropDown.module.css";
 import { Row } from "../../layouts/row_col/RowCol";
 import { useDropdown } from "./useDropdown";
-import type { DropDownPropsWithId, SingleSelectProps } from "./types";
-import DatePicker from "../datepicker/DatePicker";
+import type { SingleSelectProps } from "./types";
+import DatePicker, { type DateItemProps } from "../datepicker/DatePicker";
+import { useFilterLocalStore } from "../../../hooks/useFilterLocalStore";
 
 export const SingleSelect: React.FC<SingleSelectProps> = ({
   data,
   selectHandler,
   defaultValue,
   className,
+  formFieldName,
 }) => {
+  const { saveFilter } = useFilterLocalStore();
   const {
     selectedItem,
-    onToggle,
     showDropdown,
-    setShowDropdown,
     showDatePicker,
     closeDatePicker,
+    setShowDropdown,
+    dropdownHandler,
+    setSelectedItem,
   } = useDropdown(data, defaultValue);
 
-  const dropdownHandler = (item: DropDownPropsWithId) => {
-    if (item.code === null) {
-      throw new Error("Code is null");
-    }
-    onToggle(item.code);
-    selectHandler(item);
+  const datePickerData = ({
+    start_date,
+    end_date,
+  }: {
+    start_date: DateItemProps;
+    end_date: DateItemProps;
+  }) => {
+    selectHandler(
+      {
+        code: "date_picker",
+        name: `${start_date} - ${end_date}`,
+        id: 99,
+      },
+      formFieldName
+    );
+    setSelectedItem((prev) => ({
+      ...prev,
+      code: "date_picker",
+      name: `${start_date} - ${end_date}`,
+      id: 99,
+    }));
+    saveFilter({ start_date, end_date });
   };
 
   return (
@@ -49,7 +69,10 @@ export const SingleSelect: React.FC<SingleSelectProps> = ({
           {data.map((item) => (
             <li
               key={item.id}
-              onClick={() => showDatePicker === false && dropdownHandler(item)}
+              onClick={() =>
+                showDatePicker === false &&
+                dropdownHandler(item, formFieldName, selectHandler)
+              }
             >
               {item.name}
             </li>
@@ -60,6 +83,7 @@ export const SingleSelect: React.FC<SingleSelectProps> = ({
         open={showDatePicker}
         className={styles.datepicker}
         close={closeDatePicker}
+        callback={datePickerData}
       />
     </div>
   );

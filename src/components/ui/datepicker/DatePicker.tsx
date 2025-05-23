@@ -1,17 +1,29 @@
 import React, { useActionState } from "react";
 import styles from "./DatePicker.module.css";
-import { Column, Row } from "../../layouts/row_col/RowCol";
+import { Row } from "../../layouts/row_col/RowCol";
 
+export type DateItemProps = FormDataEntryValue | null;
 interface DatePickerProps {
   className?: string;
   open: boolean;
   close: () => void;
+  callback?: (dates: {
+    start_date: DateItemProps;
+    end_date: DateItemProps;
+  }) => void;
 }
 type FormState = {
   success: boolean;
 };
 
-const DatePicker: React.FC<DatePickerProps> = ({ className, close, open }) => {
+const DatePicker: React.FC<DatePickerProps> = ({
+  className,
+  close,
+  open,
+  callback,
+}) => {
+  const today = new Date().toISOString().split("T")[0];
+
   const handleSubmit = async (
     _prevState: FormState,
     formData: FormData
@@ -20,7 +32,8 @@ const DatePicker: React.FC<DatePickerProps> = ({ className, close, open }) => {
     const toDate = formData.get("toDate");
     close();
 
-    console.log("Submitted:", { fromDate, toDate });
+    callback !== undefined &&
+      callback({ start_date: fromDate, end_date: toDate });
 
     return { success: true };
   };
@@ -35,9 +48,19 @@ const DatePicker: React.FC<DatePickerProps> = ({ className, close, open }) => {
       className={`${styles.root} ${className} ${open ? "show" : "hide"}`}
     >
       <p className={styles.lbl}>From Date</p>
-      <input type="date" className={styles.dateInput} name="fromDate" />
+      <input
+        type="date"
+        className={styles.dateInput}
+        name="fromDate"
+        defaultValue={today}
+      />
       <p className={styles.lbl2}>To Date</p>
-      <input type="date" className={styles.dateInput} name="toDate" />
+      <input
+        type="date"
+        className={styles.dateInput}
+        name="toDate"
+        defaultValue={today}
+      />
       <Row className={styles.row} gap="10px">
         <button className={styles.btn}>OK</button>
         <button className={styles.btnCancel} onClick={close} type="button">
