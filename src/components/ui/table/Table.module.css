@@ -59,6 +59,7 @@
   color: #64a8ec;
   text-decoration: underline;
   cursor: pointer;
+  padding-left: 5px;
 }
 .downloadButton:hover {
   color: #94bee8;

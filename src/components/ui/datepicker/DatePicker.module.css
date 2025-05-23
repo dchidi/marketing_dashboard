@@ -1,0 +1,62 @@
+.root {
+  background-color: var(--color6);
+  border: solid 2px var(--color9);
+  padding: 1rem;
+  width: fit-content;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 5;
+}
+.lbl,
+.lbl2 {
+  font-size: 0.8rem;
+  color: var(--color8);
+}
+.lbl2 {
+  padding-top: 0.5rem;
+}
+.dateInput {
+  height: 35px;
+  padding: 10px;
+  /* border-radius: 4px; */
+  box-shadow: none;
+  border: none;
+}
+/* Standard placeholder styling */
+.dateInput::placeholder {
+  /* font-size: 0.7rem !important; */
+  color: var(--color6);
+}
+
+/* Microsoft Edge specific placeholder styling */
+.dateInput::-webkit-datetime-edit-text,
+.dateInput::-webkit-datetime-edit-month-field,
+.dateInput::-webkit-datetime-edit-day-field,
+.dateInput::-webkit-datetime-edit-year-field {
+  color: var(--color6);
+}
+
+/* For Firefox */
+.dateInput::-moz-placeholder {
+  color: var(--color6);
+}
+.btn,
+.btnCancel {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  background-color: var(--color3);
+  border: none;
+  font-size: 0.7rem;
+  color: #fff;
+  padding: 5px 0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.btnCancel {
+  background-color: var(--color1);
+}
+.row {
+  justify-content: center;
+  align-items: center;
+}

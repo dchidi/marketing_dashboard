@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useCallback, useReducer } from "react";
 import type { ModalAction, ModalKey, ReportMenuItem } from "../types";
 const QuoteReport = React.lazy(() => import("../reporting_tables/QuoteReport"));
 const QuoteConversionReport = React.lazy(
@@ -36,7 +36,7 @@ const useReport = () => {
   ): ModalKey | null => {
     switch (action.type) {
       case "OPEN":
-        // call api for the required tableData
+        // call api for the required tableData and load it into a global state
         console.log(action.payload);
         return action.payload;
       case "CLOSE":
@@ -49,9 +49,9 @@ const useReport = () => {
   // const tableData: any = []; //move this into the state
   const [activeModal, dispatch] = useReducer(reportModalHandler, null);
 
-  const open = (modal: ModalKey) => {
+  const open = useCallback((modal: ModalKey) => {
     dispatch({ type: "OPEN", payload: modal });
-  };
+  }, []);
 
   const close = () => dispatch({ type: "CLOSE" });
 

@@ -131,3 +131,9 @@ h3 {
   font-weight: 300;
   padding-left: 5px;
 }
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}

@@ -15,6 +15,8 @@ interface TableProps<TData> {
   data: TData[];
   enableSorting?: boolean;
   enableFiltering?: boolean;
+  tableTitle?: string;
+  downloadFileName?: string;
 }
 
 const Table = <TData,>({
@@ -22,6 +24,8 @@ const Table = <TData,>({
   data,
   enableSorting = true,
   enableFiltering = true,
+  tableTitle,
+  downloadFileName,
 }: TableProps<TData>) => {
   const { exportToExcel } = useTable();
   const table = useReactTable({
@@ -58,16 +62,17 @@ const Table = <TData,>({
   };
 
   const handleDownload = () => {
+    const excel_file_name = downloadFileName || "table_data";
     exportToExcel(
       table.getRowModel().rows.map((r) => r.original),
-      "QuoteData_from_02_01_2025_to_03_02_2025.xlsx"
+      `${excel_file_name}.xlsx`
     );
   };
 
   return (
     <>
       <p className={styles.tableTitle}>
-        Quote Data from 02/01/2025 - 03/02/2025{" "}
+        {tableTitle}
         <span onClick={handleDownload} className={styles.downloadButton}>
           [download file]
         </span>

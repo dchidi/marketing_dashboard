@@ -1,22 +1,32 @@
 import { useState } from "react";
+import type { DropDownPropsWithId } from "./types";
 
-export const useDropdown = () => {
-  const countries = [
-    { id: 1, code: "ALL", name: "ALL REGION" },
-    { id: 2, code: "UK", name: "UNITED KINGDOM" },
-    { id: 3, code: "AT", name: "AUSTRIA" },
-    { id: 4, code: "DE", name: "GERMANY" },
-    { id: 5, code: "AU", name: "AUSTRALIA" },
-    { id: 6, code: "NZ", name: "NEW ZEALAND" },
-  ];
-  const [country, setCountry] = useState("ALL REGION");
+export const useDropdown = (
+  data: DropDownPropsWithId[],
+  defaultValue: DropDownPropsWithId
+) => {
+  const [selectedItem, setSelectedItem] = useState<DropDownPropsWithId | null>(
+    defaultValue
+  );
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const countryHandler = (countryCode: string) => {
-    const { name } = countries.filter((item) => item.code === countryCode)[0];
-    setCountry(name);
-    setShowDropdown(false);
-  };
+  const [showDatePicker, setShowDatePicker] = useState(false);
 
-  return { countries, country, countryHandler, showDropdown, setShowDropdown };
+  const onToggle = (countryCode: string) => {
+    const item = data.filter((item) => item.code === countryCode)[0];
+    setSelectedItem(item);
+    setShowDropdown(false);
+    item.code === "date_picker" && setShowDatePicker(!showDatePicker);
+  };
+  const closeDatePicker = () => {
+    setShowDatePicker(false);
+  };
+  return {
+    selectedItem,
+    onToggle,
+    showDropdown,
+    setShowDropdown,
+    showDatePicker,
+    closeDatePicker,
+  };
 };

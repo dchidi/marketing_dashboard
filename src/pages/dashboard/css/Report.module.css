@@ -17,3 +17,6 @@
 .lbl {
   font-size: 1.2rem;
 }
+.reportModal {
+  min-height: 90vh;
+}

@@ -34,7 +34,12 @@ const Report: React.FC = () => {
         </Row>
       </Column>
 
-      <Modal isOpen={!!current} onClose={close} allowKeyCloseEvent={false}>
+      <Modal
+        isOpen={!!current}
+        onClose={close}
+        allowKeyCloseEvent={false}
+        className={styles.reportModal}
+      >
         <Suspense fallback={<div>Loading report…</div>}>
           {current && <current.Component />}
         </Suspense>
