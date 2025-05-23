@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const Filters = () => {
   const [brandList, setBrandList] = useState(BRANDS);
-  const [countryList, setCountryList] = useState(COUNTRIES);
+  // const [countryList, _] = useState(COUNTRIES);
 
   const { filterPrefs, saveFilter } = useFilterLocalStore();
   const callback = (
@@ -42,10 +42,17 @@ const Filters = () => {
     formFieldName: string
   ): void => {
     console.log(item, formFieldName);
-    const brands = brandList.filter((brand) =>
-      brand?.country_code?.includes(item?.code ?? "")
-    );
-    setBrandList(brands);
+    // If "All Regions" is selected or no item selected, show all brands
+    if (!item || item.code === "all") {
+      setBrandList(BRANDS);
+    } else {
+      // Filter brands that include this country code OR "all" in their country_code
+      const updatedBrands = BRANDS.filter((brand) =>
+        brand.country_code.includes(item!.code!)
+      );
+
+      setBrandList(updatedBrands);
+    }
     saveFilter({ [formFieldName]: item?.code });
   };
 
@@ -56,8 +63,8 @@ const Filters = () => {
   return (
     <Row gap="10px" className={styles.filters}>
       <SingleSelect
-        data={countryList}
-        defaultValue={countryList[0]}
+        data={COUNTRIES}
+        defaultValue={COUNTRIES[0]}
         selectHandler={countryHandler}
         formFieldName="country"
       />

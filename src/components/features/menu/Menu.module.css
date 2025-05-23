@@ -14,6 +14,12 @@
   padding: 1rem;
   border-radius: 10px;
   color: var(--color7);
+  /* Prevent mouse drag */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none; /* iOS Safari */
 }
 .profile {
   margin-left: auto;

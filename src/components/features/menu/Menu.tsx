@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Menu.module.css";
 import { SingleSelect } from "../../ui/dropdown/DropDown";
 import { Row } from "../../layouts/row_col/RowCol";
@@ -8,7 +8,8 @@ import { COUNTRIES } from "../../../constants";
 import type { DropDownPropsWithId } from "../../ui/dropdown/types";
 
 const Menu = () => {
-  const callback = (item: DropDownPropsWithId): void => {
+  const location = useLocation();
+  const callback = (item: DropDownPropsWithId | null): void => {
     console.log(item);
   };
   return (
@@ -22,11 +23,14 @@ const Menu = () => {
           <ImStatsBars2 size={25} />
           Report
         </Link>
-        <SingleSelect
-          data={COUNTRIES}
-          defaultValue={COUNTRIES[0]}
-          selectHandler={callback}
-        />
+        {location.pathname === "/dashboard/home" && (
+          <SingleSelect
+            data={COUNTRIES}
+            defaultValue={COUNTRIES[0]}
+            selectHandler={callback}
+            formFieldName="country"
+          />
+        )}
       </div>
       <div className={styles.profile}>DC</div>
     </Row>
