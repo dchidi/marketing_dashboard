@@ -1,6 +1,5 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import type { QuoteProps } from "../../../../components/features/quote/types";
-import "react-day-picker/dist/style.css";
 
 type QuoteReportProps = {
   tableData: QuoteProps[];

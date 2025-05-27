@@ -43,18 +43,21 @@
 .btn,
 .btnCancel {
   display: block;
-  margin-top: 10px;
+  margin-top: 1rem;
   width: 100%;
-  background-color: var(--color3);
-  border: none;
+  background-color: transparent;
+  border: solid 2px var(--color7);
   font-size: 0.7rem;
-  color: #fff;
+  color: var(--color7);
   padding: 5px 0;
   cursor: pointer;
   border-radius: 4px;
+  font-weight: 600;
 }
 .btnCancel {
-  background-color: var(--color1);
+  /* background-color: var(--color1); */
+  color: var(--color1);
+  border: solid 2px var(--color1);
 }
 .row {
   justify-content: center;

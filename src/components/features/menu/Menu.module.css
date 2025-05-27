@@ -23,13 +23,33 @@
 }
 .profile {
   margin-left: auto;
-  border: solid 3px var(--color5);
-  border-radius: 100px;
-  width: 50px;
-  aspect-ratio: 1/1;
-  text-align: center;
-  place-content: center;
+  border: solid 2px var(--color5);
+  border-radius: 6px;
+  padding: 6px;
+  /* width: 50px;
+  aspect-ratio: 1/1; */
+  /* text-align: center;
+  place-content: center; */
+  justify-content: center;
+  align-items: center;
   color: var(--color7);
+  gap: 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.user {
+  /* margin-left: auto; */
+  border: 0;
+  border-radius: 4px;
+  padding: 3px 5px;
+  font-size: 0.6rem;
+  /* width: 20px; */
+  /* aspect-ratio: 1/1; */
+  /* text-align: center;
+  place-content: center; */
+  color: var(--color7);
+  background-color: var(--color6);
+  font-weight: 600;
 }
 .menuItem {
   gap: 10px;

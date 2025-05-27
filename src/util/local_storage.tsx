@@ -1,3 +1,5 @@
+import { current_date, start_of_month } from "./date_util";
+
 /**
  * Retrieves and validates data from localStorage
  * @param key - The key to retrieve
@@ -60,7 +62,15 @@ export const saveToLocalStorage = <T,>(key: string, value: T): void => {
       }
     } else {
       // Key doesn't exist - store new value
-      valueToStore = value;
+
+      const defaultValue = {
+        country: "all",
+        brand: "all",
+        pet_type: "all",
+        start_date: start_of_month,
+        end_date: current_date,
+      };
+      valueToStore = { ...defaultValue, ...value };
     }
 
     // Save to localStorage

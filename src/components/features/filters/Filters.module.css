@@ -1,5 +1,6 @@
 .filters {
   justify-content: right;
+  margin: 1rem 0;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;

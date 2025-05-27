@@ -1,12 +1,12 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+// import { useAuth } from "../../context/AuthContext";
 
 export default function DashboardLayout() {
-  const { logout } = useAuth();
+  // const { logout } = useAuth();
   return (
     <div>
-      <button onClick={logout}>Log Out</button>
+      {/* <button onClick={logout}>Log Out</button> */}
       {/* <h1>Dashboard</h1>
       
       <nav>

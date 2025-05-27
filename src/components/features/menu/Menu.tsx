@@ -6,9 +6,11 @@ import { AiOutlineDashboard } from "react-icons/ai";
 import { ImStatsBars2 } from "react-icons/im";
 import { COUNTRIES } from "../../../constants";
 import type { DropDownPropsWithId } from "../../ui/dropdown/types";
+import { useAuth } from "../../../context/AuthContext";
 
 const Menu = () => {
   const location = useLocation();
+  const { logout } = useAuth();
   const callback = (item: DropDownPropsWithId | null): void => {
     console.log(item);
   };
@@ -32,7 +34,10 @@ const Menu = () => {
           />
         )}
       </div>
-      <div className={styles.profile}>DC</div>
+      <Row className={styles.profile} onClick={logout}>
+        <div className={styles.user}>DC</div>
+        <div>Logout</div>
+      </Row>
     </Row>
   );
 };

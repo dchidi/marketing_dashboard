@@ -23,7 +23,7 @@ export const BRANDS = [
   },
   {
     id: 2,
-    code: "petcover",
+    code: "pc",
     name: "Petcover",
     country_code: ["all", "au", "nz", "de", "at"],
   },
