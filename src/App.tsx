@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import RequireAuth from "./components/features/RequireAuth";
+import { Loading } from "./components/ui/loading/Loading";
 
 // Lazy-loaded components
 const Login = lazy(() => import("./pages/Login"));
@@ -9,23 +10,21 @@ const DashboardLayout = lazy(
   () => import("./components/features/DashboardLayout")
 );
 const Report = lazy(() => import("./pages/dashboard/report/Report"));
-const Settings = lazy(() => import("./pages/dashboard/Settings"));
 
 const App: React.FC = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       <Routes>
         {/* Public routes */}
         <Route path="/login" element={<Login />} />
 
         {/* Protected routes */}
         <Route element={<RequireAuth />}>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<Navigate to="home" replace />} />
             <Route path="home" element={<Home />} />
             <Route path="report" element={<Report />} />
-            <Route path="settings" element={<Settings />} />
           </Route>
         </Route>
 

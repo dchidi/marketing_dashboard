@@ -1,33 +1,17 @@
-import React, { useCallback, useReducer } from "react";
+import { useCallback, useReducer } from "react";
 import type { ModalAction, ModalKey, ReportMenuItem } from "../types";
-const QuoteReport = React.lazy(() => import("../reporting_tables/QuoteReport"));
-const QuoteConversionReport = React.lazy(
-  () => import("../reporting_tables/QuoteConversionReport")
-);
-const LapsedQuoteReport = React.lazy(
-  () => import("../reporting_tables/LapsedQuoteReport")
-);
-const ActivePolicyReport = React.lazy(
-  () => import("../reporting_tables/ActivePolicyReport")
-);
-const FreePolicyReport = React.lazy(
-  () => import("../reporting_tables/FreePolicyReport")
-);
-const FreePolicyConversionReport = React.lazy(
-  () => import("../reporting_tables/FreePolicyConversionReport")
-);
-const CancelledPolicyReport = React.lazy(
-  () => import("../reporting_tables/CancelledPolicyReport")
-);
-const ExpiredPolicyReport = React.lazy(
-  () => import("../reporting_tables/ExpiredPolicyReport")
-);
-const RenewalsReport = React.lazy(
-  () => import("../reporting_tables/RenewalsReport")
-);
-const BirthdaysReport = React.lazy(
-  () => import("../reporting_tables/BirthdaysReport")
-);
+import {
+  QuoteReport,
+  QuoteConversionReport,
+  LapsedQuoteReport,
+  ActivePolicyReport,
+  FreePolicyReport,
+  FreePolicyConversionReport,
+  CancelledPolicyReport,
+  ExpiredPolicyReport,
+  RenewalsReport,
+  BirthdaysReport,
+} from "./lazyloading";
 
 const useReport = () => {
   const reportModalHandler = (
@@ -36,8 +20,6 @@ const useReport = () => {
   ): ModalKey | null => {
     switch (action.type) {
       case "OPEN":
-        // call api for the required tableData and load it into a global state
-        console.log(action.payload);
         return action.payload;
       case "CLOSE":
         return null;
@@ -46,11 +28,12 @@ const useReport = () => {
     }
   };
 
-  // const tableData: any = []; //move this into the state
   const [activeModal, dispatch] = useReducer(reportModalHandler, null);
 
   const open = useCallback((modal: ModalKey) => {
     dispatch({ type: "OPEN", payload: modal });
+    // call api for the required tableData and load it into a global state
+    console.log(modal);
   }, []);
 
   const close = () => dispatch({ type: "CLOSE" });

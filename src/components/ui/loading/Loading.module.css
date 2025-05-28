@@ -1,0 +1,28 @@
+.root {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color6);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.spinner {
+  width: min(100px, 40%);
+  /* height: 40px; */
+  aspect-ratio: 1/1;
+  border: 6px solid #ccc;
+  border-top: 4px solid var(--color3);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

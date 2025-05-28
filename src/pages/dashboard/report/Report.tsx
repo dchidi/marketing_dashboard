@@ -5,6 +5,7 @@ import Menu from "../../../components/features/menu/Menu";
 import Card from "../../../components/layouts/card/Card";
 import Modal from "../../../components/layouts/modal/Modal";
 import useReport from "./hooks/useReport";
+import { Loading } from "../../../components/ui/loading/Loading";
 
 const Report: React.FC = () => {
   const { activeModal, close, open, reportMenu } = useReport();
@@ -40,7 +41,7 @@ const Report: React.FC = () => {
         allowKeyCloseEvent={false}
         className={styles.reportModal}
       >
-        <Suspense fallback={<div>Loading report…</div>}>
+        <Suspense fallback={<Loading />}>
           {current && <current.Component />}
         </Suspense>
       </Modal>

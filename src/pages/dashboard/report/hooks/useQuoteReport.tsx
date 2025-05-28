@@ -76,6 +76,7 @@ export const useQuoteReport = (): QuoteReportProps => {
       cell: (info) => info.getValue(),
     },
   ];
+  // Fetch data from global state
   const tableData: QuoteProps[] = [
     {
       id: 1,
