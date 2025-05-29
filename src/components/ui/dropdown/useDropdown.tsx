@@ -42,6 +42,30 @@ export const useDropdown = (
     selectHandler({ ...updatedItem }, formFieldName);
   };
 
+  const multiDropdownHandler = (
+    item: DropDownPropsWithId | null,
+    formFieldName: string,
+    selectHandler: (
+      item: DropDownPropsWithId | null,
+      formFieldName: string
+    ) => void
+  ) => {
+    const code = item ? item.code : "";
+    if (code === null) {
+      throw new Error("Code is null");
+    }
+
+    // const updatedItem = data.find((i) => i.code === code);
+    // if (!updatedItem) return;
+
+    // setSelectedItem((prev) => ({ ...prev, ...updatedItem }));
+    setShowDropdown(false);
+
+    // if (code === "date_picker") setShowDatePicker(!showDatePicker);
+
+    selectHandler(item, formFieldName);
+  };
+
   return {
     selectedItem,
     showDropdown,
@@ -50,5 +74,6 @@ export const useDropdown = (
     closeDatePicker,
     dropdownHandler,
     setSelectedItem,
+    multiDropdownHandler,
   };
 };

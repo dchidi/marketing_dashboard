@@ -1,7 +1,7 @@
 .root {
   position: relative;
 }
-.singleSelect {
+.selectBox {
   /* align-items: center;
   justify-content: center; */
   /* gap: 10px; */
@@ -50,4 +50,13 @@ ul.dropdown li:first-child {
 .datepicker {
   right: 0;
   top: 3.5rem;
+}
+
+/* MultiSelect css */
+.checkBoxItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: max-content;
+  padding-right: 1rem;
 }

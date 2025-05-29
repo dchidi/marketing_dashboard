@@ -1,7 +1,7 @@
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { PET_TYPE, BRANDS, COUNTRIES, DATEFILTERS } from "../../../constants";
 import { Row } from "../../layouts/row_col/RowCol";
-import { SingleSelect } from "../../ui/dropdown/DropDown";
+import { MultiSelect, SingleSelect } from "../../ui/dropdown/DropDown";
 import type { DropDownPropsWithId } from "../../ui/dropdown/types";
 import styles from "./Filters.module.css";
 import { useFilterLocalStore } from "../../../hooks/useFilterLocalStore";
@@ -58,6 +58,32 @@ const Filters = () => {
     saveFilter({ [formFieldName]: item?.code });
   };
 
+  const multiCountryHandler = (
+    item: DropDownPropsWithId | null,
+    formFieldName: string
+  ): void => {
+    // If "All Regions" is selected or no item selected, show all brands
+    if (!item || item.code?.split(",").includes("all")) {
+      setBrandList(BRANDS);
+    } else {
+      // // Filter brands that include selected country code OR "all" in their country_code
+      // const updatedBrands = BRANDS.filter((brand) =>
+      //   brand.country_code.includes(item!.code!)
+      // );
+      // split the CSV into an array of selected codes
+      const selectedCodes = item?.code?.split(",");
+
+      // keep any brand whose country_code array has at least one of the selected codes
+      const updatedBrands = BRANDS.filter((brand) =>
+        selectedCodes?.some((code) => brand.country_code.includes(code))
+      );
+
+      setBrandList(updatedBrands);
+    }
+    saveFilter({ [formFieldName]: item?.code });
+    console.log(item);
+  };
+
   const applyFilterHandler = () => {
     let store = getFromLocalStorage("filterPrefs");
     if (!store) {
@@ -76,6 +102,18 @@ const Filters = () => {
 
   return (
     <Row gap="10px" className={styles.filters}>
+      <MultiSelect
+        data={COUNTRIES}
+        defaultValue={COUNTRIES[0]}
+        formFieldName="country"
+        selectHandler={multiCountryHandler}
+      />
+      <MultiSelect
+        data={brandList}
+        defaultValue={brandList[0]}
+        formFieldName="brand"
+        selectHandler={multiCountryHandler}
+      />
       <SingleSelect
         data={COUNTRIES}
         defaultValue={COUNTRIES[0]}
