@@ -17,7 +17,7 @@ export default function Login() {
     <Row className={styles.root}>
       <Column className={styles.left}>
         <div className={styles.displayName}>
-          <h3>Marketing CRM</h3>
+          <h3>Marketing Dashboard</h3>
           <h2>Petcover</h2>
         </div>
         <img

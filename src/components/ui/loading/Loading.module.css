@@ -1,7 +1,7 @@
 .root {
   height: 100vh;
   width: 100vw;
-  background-color: var(--color6);
+  /* background-color: var(--color6); */
 
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
 }
 
 .spinner {
-  width: min(100px, 40%);
+  width: min(90px, 30%);
   /* height: 40px; */
   aspect-ratio: 1/1;
   border: 6px solid #ccc;

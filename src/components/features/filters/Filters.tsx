@@ -40,23 +40,23 @@ const Filters = () => {
     }
   };
 
-  const countryHandler = (
-    item: DropDownPropsWithId | null,
-    formFieldName: string
-  ): void => {
-    // If "All Regions" is selected or no item selected, show all brands
-    if (!item || item.code === "all") {
-      setBrandList(BRANDS);
-    } else {
-      // Filter brands that include selected country code OR "all" in their country_code
-      const updatedBrands = BRANDS.filter((brand) =>
-        brand.country_code.includes(item!.code!)
-      );
+  // const countryHandler = (
+  //   item: DropDownPropsWithId | null,
+  //   formFieldName: string
+  // ): void => {
+  //   // If "All Regions" is selected or no item selected, show all brands
+  //   if (!item || item.code === "all") {
+  //     setBrandList(BRANDS);
+  //   } else {
+  //     // Filter brands that include selected country code OR "all" in their country_code
+  //     const updatedBrands = BRANDS.filter((brand) =>
+  //       brand.country_code.includes(item!.code!)
+  //     );
 
-      setBrandList(updatedBrands);
-    }
-    saveFilter({ [formFieldName]: item?.code });
-  };
+  //     setBrandList(updatedBrands);
+  //   }
+  //   saveFilter({ [formFieldName]: item?.code });
+  // };
 
   const multiCountryHandler = (
     item: DropDownPropsWithId | null,
@@ -114,18 +114,7 @@ const Filters = () => {
         formFieldName="brand"
         selectHandler={multiCountryHandler}
       />
-      <SingleSelect
-        data={COUNTRIES}
-        defaultValue={COUNTRIES[0]}
-        selectHandler={countryHandler}
-        formFieldName="country"
-      />
-      <SingleSelect
-        data={brandList}
-        defaultValue={brandList[0]}
-        selectHandler={callback}
-        formFieldName="brand"
-      />
+
       <SingleSelect
         data={PET_TYPE}
         defaultValue={PET_TYPE[0]}

@@ -1,13 +1,12 @@
-import React, { useMemo } from "react";
+import React from "react";
 import styles from "./Campaigns.module.css";
-import { Column, Row } from "../../layouts/row_col/RowCol";
+import { Row } from "../../layouts/row_col/RowCol";
 import Card from "../../layouts/card/Card";
 import Modal from "../../layouts/modal/Modal";
 import { useCampaigns } from "./useCampaigns";
 import Table from "../../ui/table/Table";
 import { useModal } from "../../../hooks/useModal";
 import { FaBirthdayCake } from "react-icons/fa";
-import { FcCancel } from "react-icons/fc";
 import {
   TbCancel,
   TbClockExclamation,
@@ -37,7 +36,7 @@ export const CampaignItem: React.FC<CampaignItemProps> = ({
 
 const Campaigns: React.FC = () => {
   const { isOpen, toggleModal } = useModal();
-  const { quoteTableData, columns, quoteData, totalQuotes } = useCampaigns();
+  const { quoteTableData, columns } = useCampaigns();
 
   const CampaignData = [
     { id: 1, text: "Birthday", count: 2, icon: <FaBirthdayCake /> },

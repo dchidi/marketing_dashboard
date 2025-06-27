@@ -2,7 +2,7 @@ import { useQuote } from "../../../../components/features/quote/useQuote";
 import Table from "../../../../components/ui/table/Table";
 
 const RenewalReport = () => {
-  const { quoteTableData, columns, quoteData, totalQuotes } = useQuote();
+  const { quoteTableData, columns } = useQuote();
   return (
     <Table
       columns={columns}

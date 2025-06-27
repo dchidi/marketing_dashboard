@@ -7,7 +7,6 @@ import { useCancelledPolicy } from "./useCancelledPolicy";
 import Table from "../../ui/table/Table";
 import { useModal } from "../../../hooks/useModal";
 import { SingleLineChart } from "../../ui/graph/LineGraph";
-import { TbMinusVertical } from "react-icons/tb";
 
 const CancelledPolicy: React.FC = () => {
   const { isOpen, toggleModal } = useModal();
@@ -42,7 +41,11 @@ const CancelledPolicy: React.FC = () => {
       >
         {/* <h3>32.5k</h3> */}
         <Row className={styles.chart}>
-          <SingleLineChart data={yourData} color="#c42727" />
+          <SingleLineChart
+            data={yourData}
+            color="#c42727"
+            name="Cancelled Policy"
+          />
         </Row>
       </Card>
       <Modal isOpen={isOpen} onClose={toggleModal} allowKeyCloseEvent={false}>

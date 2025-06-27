@@ -38,14 +38,14 @@ const ActiveCustomer: React.FC = () => {
         </Row>
         <Row className={styles.legend}>
           <div>
-            <div>Free</div>
+            <div>Free Policy</div>
             <Row className={styles.legendRow}>
               <TbMinusVertical className={styles.free} />
               <span>600</span>
             </Row>
           </div>
           <div>
-            <div>Paid</div>
+            <div>Paid Policy</div>
             <Row className={styles.legendRow}>
               <TbMinusVertical className={styles.paid} /> <span>1,600</span>
             </Row>

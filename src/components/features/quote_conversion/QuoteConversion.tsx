@@ -1,6 +1,5 @@
-import React, { useMemo } from "react";
+import React from "react";
 import styles from "./QuoteConversion.module.css";
-import { VBar } from "../../ui/graph/BarChart";
 import { Row } from "../../layouts/row_col/RowCol";
 import Card from "../../layouts/card/Card";
 import Modal from "../../layouts/modal/Modal";
@@ -33,7 +32,7 @@ const QuoteConversion: React.FC = () => {
               // innerRadius="0"
               outerRadius="100%"
               label={true}
-              tooltip={false}
+              tooltip={true}
               legend={true}
             />
           </div>

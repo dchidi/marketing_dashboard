@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import styles from "./FreePolicyConversion.module.css";
 import { HBar } from "../../ui/graph/BarChart";
-import { Column, Row } from "../../layouts/row_col/RowCol";
+import { Column } from "../../layouts/row_col/RowCol";
 import Card from "../../layouts/card/Card";
 import Modal from "../../layouts/modal/Modal";
 import { useFreePolicyConversion } from "./useFreePolicyConversion";

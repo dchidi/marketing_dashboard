@@ -41,7 +41,11 @@ const ExpiredPolicy: React.FC = () => {
       >
         {/* <h3>32.5k</h3> */}
         <Row className={styles.chart}>
-          <SingleLineChart data={yourData} color="#f39523" />
+          <SingleLineChart
+            data={yourData}
+            color="#f39523"
+            name="Expired Policy"
+          />
         </Row>
       </Card>
       <Modal isOpen={isOpen} onClose={toggleModal} allowKeyCloseEvent={false}>

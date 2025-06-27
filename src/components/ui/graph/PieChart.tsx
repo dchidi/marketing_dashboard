@@ -49,6 +49,12 @@ export function PieChart({
   legendWrapperStyle = { fontSize: 11 },
   legendTextStyle = { fontSize: 11, marginLeft: 10 },
 }: PieChartProps) {
+  const formatNumber = (num: number) => {
+    if (num >= 1_000_000) return (num / 1_000_000).toFixed(2) + "M";
+    if (num >= 1_000) return (num / 1_000).toFixed(2) + "k";
+    return num.toString();
+  };
+
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RechartsPieChart margin={chartMargin}>
@@ -82,12 +88,37 @@ export function PieChart({
           nameKey="name"
           outerRadius={outerRadius}
           // apply label styling or disable labels
-          label={label ? labelStyle : false}
+          // label={label ? labelStyle : false}
+          label={
+            label
+              ? ({ value, cx, cy, midAngle, outerRadius }) => {
+                  const RADIAN = Math.PI / 180;
+                  const radius = outerRadius + 10;
+                  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+                  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+                  return (
+                    <text
+                      x={x}
+                      y={y}
+                      fill={labelStyle.fill || "#000"}
+                      // textAnchor="bottom"
+                      textAnchor={x > cx ? "start" : "end"}
+                      dominantBaseline="central"
+                      fontSize={labelStyle.fontSize || 12}
+                      fontWeight="bold"
+                    >
+                      {formatNumber(value)}
+                    </text>
+                  );
+                }
+              : false
+          }
           stroke="none" // remove slice borders
           paddingAngle={paddingAngle} // gap between slices
           cornerRadius={cornerRadius} // round slice edges
         >
-          {data.map((entry: PieData, index: number) => (
+          {data.map((_: PieData, index: number) => (
             <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
           ))}
         </Pie>

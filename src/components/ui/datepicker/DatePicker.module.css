@@ -11,16 +11,19 @@
 .lbl2 {
   font-size: 0.8rem;
   color: var(--color8);
+  margin-bottom: 0.3rem;
 }
 .lbl2 {
-  padding-top: 0.5rem;
+  padding-top: 1rem;
 }
 .dateInput {
   height: 35px;
   padding: 10px;
-  /* border-radius: 4px; */
+  border-radius: 2px;
   box-shadow: none;
   border: none;
+  background-color: rgb(255, 248, 232);
+  font-size: 14px;
 }
 /* Standard placeholder styling */
 .dateInput::placeholder {
@@ -45,19 +48,21 @@
   display: block;
   margin-top: 1rem;
   width: 100%;
-  background-color: transparent;
-  border: solid 2px var(--color7);
+  border: none;
   font-size: 0.7rem;
-  color: var(--color7);
+  background-color: var(--color7);
+  color: var(--color6);
   padding: 5px 0;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 2px;
   font-weight: 600;
 }
 .btnCancel {
   /* background-color: var(--color1); */
-  color: var(--color1);
-  border: solid 2px var(--color1);
+  color: var(--color7);
+  border: solid 1px var(--color7);
+  background-color: transparent;
+  /* border: solid 1px var(--color1); */
 }
 .row {
   justify-content: center;

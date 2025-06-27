@@ -1,11 +1,11 @@
 import {
   ResponsiveContainer,
   LineChart,
-  CartesianGrid,
+  // CartesianGrid,
   XAxis,
-  YAxis,
+  // YAxis,
   Tooltip,
-  Legend,
+  // Legend,
   Line,
 } from "recharts";
 
@@ -52,7 +52,7 @@ export function TwoLineChart({ data }: { data: GraphDataProps[] }) {
         {/* <YAxis /> */}
 
         {/* Tooltip on hover */}
-        {/* <Tooltip /> */}
+        <Tooltip />
 
         {/* Legend */}
         {/* <Legend verticalAlign="top" height={36} /> */}
@@ -61,7 +61,7 @@ export function TwoLineChart({ data }: { data: GraphDataProps[] }) {
         <Line
           type="monotone"
           dataKey="free"
-          name="Free"
+          name="Free Policy"
           stroke="#8884d8"
           strokeWidth={2}
           dot={{ r: 3 }}
@@ -72,7 +72,7 @@ export function TwoLineChart({ data }: { data: GraphDataProps[] }) {
         <Line
           type="monotone"
           dataKey="paid"
-          name="Paid"
+          name="Paid Policy"
           stroke="#00c49f"
           strokeWidth={2}
           dot={{ r: 3 }}
@@ -86,15 +86,17 @@ export function TwoLineChart({ data }: { data: GraphDataProps[] }) {
 export function SingleLineChart({
   data,
   color,
+  name,
 }: {
   data: SingleLineChartProps[];
   color?: string;
+  name?: string;
 }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart
         data={data}
-        // margin={{ top: 20, right: 30, left: 0, bottom: 5 }}
+        margin={{ top: 30, right: 10, left: 10, bottom: 5 }}
       >
         {/* <CartesianGrid strokeDasharray="3 3" /> */}
 
@@ -121,7 +123,7 @@ export function SingleLineChart({
         {/* <YAxis /> */}
 
         {/* Tooltip on hover */}
-        {/* <Tooltip /> */}
+        <Tooltip />
 
         {/* Legend */}
         {/* <Legend verticalAlign="top" height={36} /> */}
@@ -130,11 +132,12 @@ export function SingleLineChart({
         <Line
           type="monotone"
           dataKey="count"
-          name="count"
+          name={name || "count"}
           stroke={color}
           strokeWidth={2}
           dot={{ r: 3 }}
           activeDot={{ r: 6 }}
+          label={{ position: "top", fill: color, fontSize: 12 }}
         />
       </LineChart>
     </ResponsiveContainer>
