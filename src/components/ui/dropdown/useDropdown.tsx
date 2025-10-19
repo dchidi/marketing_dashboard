@@ -1,12 +1,13 @@
 import { useState } from "react";
 import type { DropDownPropsWithId } from "./types";
+import { useFilterLocalStore } from "../../../hooks/useFilterLocalStore";
 // import { useFilterLocalStore } from "../../../hooks/useFilterLocalStore";
 
 export const useDropdown = (
   data: DropDownPropsWithId[],
   defaultValue: DropDownPropsWithId
 ) => {
-  // const { saveFilter } = useFilterLocalStore();
+  const { saveFilter } = useFilterLocalStore();
   const [selectedItem, setSelectedItem] = useState<DropDownPropsWithId | null>(
     defaultValue
   );
@@ -35,6 +36,7 @@ export const useDropdown = (
     if (!updatedItem) return;
 
     setSelectedItem((prev) => ({ ...prev, ...updatedItem }));
+    saveFilter({ date_code: updatedItem.code });
     setShowDropdown(false);
 
     if (code === "date_picker") setShowDatePicker(!showDatePicker);

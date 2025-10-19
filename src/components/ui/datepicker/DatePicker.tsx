@@ -42,7 +42,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     success: false,
   });
 
-  console.log(state, isPending);
+  // console.log(state, isPending);
   return (
     <form
       action={formAction}

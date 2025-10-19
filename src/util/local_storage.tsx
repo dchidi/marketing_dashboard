@@ -1,4 +1,4 @@
-import { current_date, start_of_month } from "./date_util";
+import { current_date, start_of_month, yesterday } from "./date_util";
 
 /**
  * Retrieves and validates data from localStorage
@@ -14,10 +14,22 @@ export const getFromLocalStorage = <T,>(
     const item = localStorage.getItem(key);
     if (item === null) return null;
 
-    const parsed = JSON.parse(item);
+    let parsed = JSON.parse(item);
 
-    // If validator provided, use it to check type at runtime
+    // if filter validation date has expired, update storage
+    if (!parsed?.filterValidUntil || parsed.filterValidUntil < current_date) {
+      parsed = {
+        ...parsed,
+        filterValidUntil: current_date,
+        start_date: yesterday,
+        end_date: yesterday,
+        date_code: "yesterday",
+      };
+      saveToLocalStorage(key, parsed);
+    }
+
     if (validator && !validator(parsed)) {
+      // If validator provided, use it to check type at runtime
       console.warn(`LocalStorage data for key "${key}" failed validation`);
       return null;
     }
@@ -74,6 +86,8 @@ export const saveToLocalStorage = <T,>(key: string, value: T): void => {
     }
 
     // Save to localStorage
+    // add dateValidation
+    valueToStore = { ...valueToStore, filterValidUntil: current_date };
     localStorage.setItem(key, JSON.stringify(valueToStore));
   } catch (error) {
     console.error(`Error saving to localStorage (key: ${key}):`, error);

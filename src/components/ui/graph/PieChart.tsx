@@ -12,6 +12,7 @@ import {
 export interface PieData {
   name: string;
   value: number;
+  percent?: number;
 }
 
 // Props for the PieChart component
@@ -37,7 +38,7 @@ export interface PieChartProps {
 
 export function PieChart({
   data,
-  colors = ["#8884d8", "#82ca9d", "#ffc658", "#ff8042"],
+  colors = ["#ffc658", "#82ca9d", "#8884d8", "#ff8042"],
   outerRadius = "80%",
   label = false,
   labelStyle = { fontSize: 12, fill: "#b0b0b0" }, // default label style
@@ -45,9 +46,9 @@ export function PieChart({
   legend = false,
   paddingAngle = 2,
   cornerRadius = 4,
-  chartMargin = { bottom: 15 }, // space for legend
+  chartMargin = { bottom: 15, right: 15, left: 15 }, // space for legend
   legendWrapperStyle = { fontSize: 11 },
-  legendTextStyle = { fontSize: 11, marginLeft: 10 },
+  legendTextStyle = { fontSize: 11, marginLeft: 2 },
 }: PieChartProps) {
   const formatNumber = (num: number) => {
     if (num >= 1_000_000) return (num / 1_000_000).toFixed(2) + "M";
@@ -87,6 +88,7 @@ export function PieChart({
           dataKey="value"
           nameKey="name"
           outerRadius={outerRadius}
+          labelLine={false}
           // apply label styling or disable labels
           // label={label ? labelStyle : false}
           label={
@@ -104,7 +106,7 @@ export function PieChart({
                       fill={labelStyle.fill || "#000"}
                       // textAnchor="bottom"
                       textAnchor={x > cx ? "start" : "end"}
-                      dominantBaseline="central"
+                      // dominantBaseline="central"
                       fontSize={labelStyle.fontSize || 12}
                       fontWeight="bold"
                     >

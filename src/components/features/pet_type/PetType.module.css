@@ -6,3 +6,9 @@
   padding: 1.5rem 0 0.9rem 0;
   justify-content: center;
 }
+.regions {
+  font-size: 0.6rem;
+  color: var(--color8);
+  font-weight: 600;
+  padding-top: 10px;
+}

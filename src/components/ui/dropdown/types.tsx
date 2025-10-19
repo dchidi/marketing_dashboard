@@ -16,3 +16,14 @@ export interface SingleSelectProps {
   className?: string;
   formFieldName: string;
 }
+
+export interface MultiSelectProps {
+  defaultValue: DropDownPropsWithId[];
+  data: DropDownPropsWithId[];
+  selectHandler: (
+    item: DropDownPropsWithId | null,
+    formFieldName: string
+  ) => void;
+  className?: string;
+  formFieldName: string;
+}

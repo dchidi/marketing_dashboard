@@ -18,9 +18,8 @@ export interface QuoteProps {
 }
 export type quoteGraphProps = {
   id: number;
-  width: number;
-  value: string;
-  text: string;
+  name: string;
+  value: number;
 };
 export interface useQuoteProps {
   quoteTableData: QuoteProps[];

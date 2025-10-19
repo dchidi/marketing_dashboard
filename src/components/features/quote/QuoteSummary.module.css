@@ -1,0 +1,70 @@
+.root {
+  width: 100%;
+  color: var(--color7);
+}
+.left,
+.right {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+.innerCard {
+  margin-top: 5px;
+  font-size: 2.5rem;
+  text-align: center;
+  padding-top: 1.5rem;
+}
+.card1,
+.card2,
+.card3,
+.card4,
+.card5 {
+  min-width: 180px;
+}
+.cardHeader {
+  padding: 20px 20px 0 20px;
+}
+
+.card4,
+.card5,
+.card3,
+.card1,
+.card2 {
+  font-weight: 600;
+  min-height: 11.3rem;
+}
+
+.card1 {
+  background-color: #433f90 !important;
+}
+.card2 {
+  background-color: #92370a !important;
+}
+.card3 {
+  background-color: #433f90 !important;
+}
+.card4 {
+  background-color: #433f90 !important;
+}
+.card5 {
+  font-size: 1rem;
+}
+.areaChart {
+  padding: 0;
+}
+.quotePolicyLag {
+  margin-top: 0.5rem;
+  min-height: 60px;
+}
+
+.mt2 {
+  margin-top: 1.5rem;
+}
+.mt1 {
+  margin-top: 5px;
+}

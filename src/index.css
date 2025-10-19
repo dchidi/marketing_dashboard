@@ -89,16 +89,26 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* ==== End Reset ==== */
 :root {
-  --color1: #f39523;
+  --color1: #c16e09;
   --color2: #0088fe;
-  --color3: #8884d8;
-  --color4: #00c49f;
+  --color3: #6c68b1;
+  --color4: #0d9179;
   --color5: rgba(176, 191, 202, 0.166);
   --color6: #303030;
   --color7: #8cacbfe9;
   --color8: #b0b0b0;
   --color9: rgba(194, 221, 242, 0.453);
   --color10: #c42727;
+
+  --color11: #ff6b6b;
+  --color12: #4ecdc4;
+  --color13: #ffd93d;
+  --color14: #1a535c;
+  --color15: #ff9f1c;
+  --color16: #2ec4b6;
+  --color17: #9d4edd;
+  --color18: #f15bb5;
+
   --font1: 0.7rem;
 }
 h1,
@@ -113,6 +123,10 @@ h3 {
   font-size: 1rem;
   color: var(--color7);
 }
+
+.color0 {
+  background-color: #75224d;
+}
 .color1 {
   background-color: var(--color1);
 }
@@ -125,10 +139,44 @@ h3 {
 .color4 {
   background-color: var(--color4);
 }
+/* color0 and color5 are used only for graph */
+.color5 {
+  background-color: #068ea0;
+}
+.color6 {
+  background-color: var(--color11);
+}
+.color7 {
+  background-color: var(--color12);
+}
+.color8 {
+  background-color: var(--color13);
+}
+.color9 {
+  background-color: var(--color14);
+}
+.color10 {
+  background-color: var(--color15);
+}
+.color11 {
+  background-color: var(--color16);
+}
+.color12 {
+  background-color: var(--color17);
+}
+.color13 {
+  background-color: var(--color18);
+}
+.color14 {
+  background-color: var(--color19);
+}
+.color15 {
+  background-color: var(--color20);
+}
 .date {
   font-size: 0.7rem;
   font-weight: 300;
-  padding-left: 5px;
+  /* padding-left: 5px; */
 }
 .show {
   display: block;

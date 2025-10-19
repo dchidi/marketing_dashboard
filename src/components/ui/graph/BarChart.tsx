@@ -17,6 +17,7 @@ export const VBar: React.FC<BarProps> = ({
   value_label,
   text_label,
 }) => {
+  // console.log(color, text_label);
   return (
     <div className={`${styles.vbar} ${color}`} style={{ height, width }}>
       {height > 0 && (

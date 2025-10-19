@@ -48,7 +48,7 @@ export const SingleSelect: React.FC<SingleSelectProps> = ({
       name: `${start_date} - ${end_date}`,
       id: 99,
     }));
-    saveFilter({ start_date, end_date });
+    saveFilter({ start_date, end_date, date_code: "date_picker" });
   };
 
   return (
@@ -182,11 +182,11 @@ export const MultiSelect: React.FC<SingleSelectProps> = ({
             showDropdown ? styles.showMenu : styles.hideMenu
           }`}
         >
-          {data.map((item, _) => (
+          {data.map((item, indx) => (
             <li
               onClick={() => onClickHandler(item)}
               className={styles.checkBoxItem}
-              key={item.id}
+              key={indx}
             >
               {selectedItems.includes(item!.code!) ? (
                 <IoCheckboxSharp size={25} />

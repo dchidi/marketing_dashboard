@@ -2,53 +2,91 @@ import React from "react";
 import styles from "./QuoteConversion.module.css";
 import { Row } from "../../layouts/row_col/RowCol";
 import Card from "../../layouts/card/Card";
-import Modal from "../../layouts/modal/Modal";
 import { useQuoteConversion } from "./useQuoteConversion";
-import Table from "../../ui/table/Table";
-import { useModal } from "../../../hooks/useModal";
 import { PieChart } from "../../ui/graph/PieChart";
+import { TableModal } from "../../ui/table/TableModal";
+import { conversion_table_columns } from "../../ui/table/table_columns";
+import Skeleton from "../../ui/loading/skeleton";
 
 const QuoteConversion: React.FC = () => {
-  const { isOpen, toggleModal } = useModal();
-  const { quoteTableData, columns, quoteData, totalQuotes } =
-    useQuoteConversion();
+  const {
+    totalConversion,
+    graphData,
+    dataTableQuery,
+    isLoadingSummary,
+    hasRequested,
+    isOpen,
+    closeModal,
+    setPagination,
+    handleViewData,
+    handleDirectDownload,
+  } = useQuoteConversion();
+
+  // Deferred API call
+  const {
+    data,
+    error,
+    isError,
+    isSuccess,
+    isFetching, // true while a request is in flight
+  } = dataTableQuery;
 
   return (
     <>
       <Card
         title="Quote Conversion"
-        viewDataCallback={toggleModal}
+        viewDataCallback={handleViewData}
         className={styles.root}
+        hasViewData={false}
       >
-        <h3>
-          {totalQuotes} <span className="date">[May 2025]</span>
-        </h3>
-        <Row className={styles.chart}>
-          {" "}
-          <div style={{ width: "300px", height: 250 }}>
-            <PieChart
-              data={quoteData}
-              colors={["#0088FE", "#00C49F", "#FFBB28", "#FF8042"]}
-              // innerRadius="0"
-              outerRadius="100%"
-              label={true}
-              tooltip={true}
-              legend={true}
-            />
-          </div>
-        </Row>
+        {isLoadingSummary ? (
+          <Skeleton variant="dots" intervalMs={600} />
+        ) : (
+          <>
+            <h3>{totalConversion}</h3>
+            <Row className={styles.chart}>
+              <div style={{ width: "300px", height: 250 }}>
+                {totalConversion !== "0" ? (
+                  <PieChart
+                    data={graphData}
+                    colors={["#59577bff", "#24a08aff"]}
+                    outerRadius="80%"
+                    label={true}
+                    tooltip={true}
+                    legend={true}
+                  />
+                ) : (
+                  <PieChart
+                    data={[
+                      { name: "Empty", value: 80 },
+                      { name: "Empty", value: 10 },
+                    ]}
+                    colors={["#3a3a3aff"]}
+                    outerRadius="100%"
+                    label={false}
+                    tooltip={false}
+                    legend={false}
+                  />
+                )}
+              </div>
+            </Row>
+          </>
+        )}
       </Card>
-      <Modal isOpen={isOpen} onClose={toggleModal} allowKeyCloseEvent={false}>
-        {/* TODO:: Ensure table data is only loaded when user click on the data icon to 
-        improve load time. Leave the logic as it is for now until you start to 
-        implement api calls */}
-        <Table
-          columns={columns}
-          data={quoteTableData}
-          enableSorting={true}
-          enableFiltering={true}
-        />
-      </Modal>
+      <TableModal
+        modalState={isOpen}
+        closeModal={closeModal}
+        closeEvent={false}
+        isFetching={isFetching}
+        hasRequested={hasRequested}
+        isError={isError}
+        error={error}
+        data={data}
+        isSuccess={isSuccess}
+        columns={conversion_table_columns}
+        downloadHandler={handleDirectDownload}
+        paginationHandler={setPagination}
+      />
     </>
   );
 };

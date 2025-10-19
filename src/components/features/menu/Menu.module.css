@@ -1,6 +1,6 @@
 .root {
   margin: 1rem 0;
-  align-items: center;
+  /* align-items: center; */
 }
 .menu,
 .menuItem {
@@ -9,9 +9,9 @@
 }
 .menu {
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
   border: solid 1px var(--color5);
-  padding: 1rem;
+  padding: 6px;
   border-radius: 10px;
   color: var(--color7);
   /* Prevent mouse drag */
@@ -20,6 +20,12 @@
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-touch-callout: none; /* iOS Safari */
+  align-self: baseline;
+}
+
+.menuItem {
+  gap: 5px;
+  font-size: 0.9rem;
 }
 .profile {
   margin-left: auto;
@@ -30,12 +36,13 @@
   aspect-ratio: 1/1; */
   /* text-align: center;
   place-content: center; */
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   color: var(--color7);
   gap: 10px;
   font-size: 0.8rem;
   cursor: pointer;
+  align-self: baseline;
 }
 .user {
   /* margin-left: auto; */
@@ -43,6 +50,7 @@
   border-radius: 4px;
   padding: 3px 5px;
   font-size: 0.6rem;
+  align-self: baseline;
   /* width: 20px; */
   /* aspect-ratio: 1/1; */
   /* text-align: center;
@@ -50,7 +58,4 @@
   color: var(--color7);
   background-color: var(--color6);
   font-weight: 600;
-}
-.menuItem {
-  gap: 10px;
 }

@@ -1,0 +1,100 @@
+/* ===== Base shimmer ===== */
+.root {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  background: var(--sk-bg, #eee);
+  border-radius: 6px;
+}
+
+.shimmer {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  animation: shimmer 1.4s infinite;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center; /* perfect center */
+  pointer-events: none; /* loader doesn't block clicks */
+}
+
+@media (prefers-color-scheme: dark) {
+  .root {
+    --sk-bg: #2b2b2b;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* helpers */
+.circle {
+  border-radius: 9999px;
+}
+.block {
+  display: block;
+  width: 100%;
+}
+
+/* ===== Dots variant ===== */
+.dotsRoot {
+  position: relative;
+  overflow: hidden;
+}
+
+.dotsSurface {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dots-bg, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dots-radius, 12px);
+  padding: var(--dots-pad, 8px); /* 👈 padding around dots */
+}
+
+/* Dots row and dot (same as you had, kept here) */
+.dotsRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dot-gap, 8px);
+}
+
+.dot {
+  width: var(--dot-size, 12px);
+  height: var(--dot-size, 12px);
+  border-radius: 50%;
+  opacity: 0.25;
+  transform: scale(0.8);
+  animation: dotPulse var(--dot-cycle, 1200ms) infinite ease-in-out;
+}
+
+@keyframes dotPulse {
+  0% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+}

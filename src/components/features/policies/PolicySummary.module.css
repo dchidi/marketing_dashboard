@@ -1,0 +1,75 @@
+.root {
+  width: 100%;
+  color: var(--color7);
+}
+.mt2 {
+  margin-top: 1.5rem;
+}
+.mt1 {
+  margin-top: 5px;
+}
+.left,
+.right {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.left {
+  /* flex: 1; */
+}
+.right {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+.innerCard {
+  margin-top: 5px;
+  font-size: 3rem;
+  text-align: center;
+  padding-top: 1.5rem;
+}
+.card1,
+.card2,
+.card3,
+.card4,
+.card5 {
+  min-width: 180px;
+}
+.cardHeader {
+  /* color: #fff; */
+  /* margin-bottom: 10px; */
+  /* font-size: 0.7rem; */
+  padding: 20px 20px 0 20px;
+}
+
+.card4,
+.card5,
+.card3,
+.card1,
+.card2 {
+  /* font-size: 2rem; */
+  font-weight: 600;
+  min-height: 10.6rem;
+}
+
+.card1 {
+  background-color: #433f90;
+}
+.card2 {
+  background-color: #92370a;
+}
+.card3 {
+  background-color: #433f90;
+}
+.card4 {
+  background-color: #433f90;
+}
+.card5 {
+  font-size: 1rem;
+}
+.areaChart {
+  padding: 0;
+}
+.quotePolicyLag {
+  margin-top: 0.5rem;
+  min-height: 60px;
+}

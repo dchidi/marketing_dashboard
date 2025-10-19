@@ -12,8 +12,8 @@ import {
 // Sample data: replace with your own
 interface GraphDataProps {
   date: string;
-  free: number;
-  paid: number;
+  web: number;
+  phone: number;
 }
 interface SingleLineChartProps {
   date: string;
@@ -60,9 +60,10 @@ export function TwoLineChart({ data }: { data: GraphDataProps[] }) {
         {/* First line */}
         <Line
           type="monotone"
-          dataKey="free"
-          name="Free Policy"
-          stroke="#8884d8"
+          dataKey="web"
+          name="Web"
+          // stroke="#8884d8"
+          stroke="#e98740ff"
           strokeWidth={2}
           dot={{ r: 3 }}
           activeDot={{ r: 6 }}
@@ -71,9 +72,10 @@ export function TwoLineChart({ data }: { data: GraphDataProps[] }) {
         {/* Second line */}
         <Line
           type="monotone"
-          dataKey="paid"
-          name="Paid Policy"
-          stroke="#00c49f"
+          dataKey="phone"
+          name="Phone"
+          // stroke="#00c49f"
+          stroke="#3dafc9ff"
           strokeWidth={2}
           dot={{ r: 3 }}
           activeDot={{ r: 6 }}

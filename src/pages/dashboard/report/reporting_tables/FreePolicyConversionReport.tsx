@@ -1,4 +1,4 @@
-import { useQuote } from "../../../../components/features/quote/useQuote";
+import { useQuote } from "../../../../components/features/quote/useQuoteByPetType";
 import Table from "../../../../components/ui/table/Table";
 
 const FreePolicyConversionReport = () => {

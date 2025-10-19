@@ -5,7 +5,7 @@
   gap: 1.5rem;
   padding: 1.5rem 0 0.9rem 0;
   /* width: 600px; */
-  height: 250px;
+  height: 220px;
 }
 .legend {
   font-size: var(--font1);
@@ -23,12 +23,12 @@
 .legendRow {
   align-items: center;
 }
-.free,
-.paid {
+.web,
+.phone {
   font-size: 30px;
-  color: var(--color3);
+  color: #e98640ff;
   margin-left: -0.75rem;
 }
-.paid {
-  color: var(--color4);
+.phone {
+  color: #3dafc9ff;
 }

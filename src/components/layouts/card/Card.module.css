@@ -4,13 +4,14 @@
   /* min-width: fit-content; */
   background-color: var(--color6);
   border: solid 1px var(--color5);
+  position: relative;
 }
 .header {
   align-items: center;
 }
 .title {
   color: var(--color8);
-  font-size: 0.9rem;
+  font-size: 0.75rem;
 }
 .link {
   margin-left: auto;

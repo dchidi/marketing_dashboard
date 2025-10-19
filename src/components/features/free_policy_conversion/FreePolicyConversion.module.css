@@ -1,7 +1,38 @@
 .root {
-  flex: 1;
+  width: 28%;
 }
 .chart {
-  gap: 1.5rem;
   padding: 1.5rem 0 0.9rem 0;
+  overflow-y: auto;
+}
+.dataRow {
+  border: solid 1px var(--color14);
+  margin-bottom: 5px;
+  padding: 6px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  min-width: 49%;
+}
+.val {
+  display: inline-block;
+  margin-left: auto;
+  font-weight: 500;
+  color: rgb(193, 239, 247);
+}
+.mt2 {
+  margin: 1rem 0;
+}
+.chart h5 {
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: #777;
+}
+.row {
+  flex-wrap: wrap;
+}
+.perct {
+  font-size: 9px;
+  padding-left: 3px;
+  color: rgb(137, 137, 137);
 }

@@ -10,6 +10,7 @@ interface CardProps {
   hasViewData?: boolean;
   viewDataCallback?: VoidFunction;
   onClick?: VoidFunction;
+  classNameHeader?: string;
 }
 const Card: React.FC<CardProps> = ({
   children,
@@ -18,12 +19,13 @@ const Card: React.FC<CardProps> = ({
   hasViewData = true,
   viewDataCallback,
   onClick,
+  classNameHeader,
 }) => {
   return (
     <>
       <div className={`${styles.card} ${className}`} onClick={onClick}>
         <Row className={styles.header}>
-          <span className={styles.title}>{title}</span>
+          <span className={`${styles.title} ${classNameHeader}`}>{title}</span>
           {hasViewData && (
             <span onClick={viewDataCallback} className={styles.link}>
               <MdOutlineDataset size={20} /> Data
