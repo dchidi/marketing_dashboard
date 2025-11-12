@@ -20,7 +20,7 @@ const queryClient = new QueryClient({
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/mis_dashboard">
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <App />
