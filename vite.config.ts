@@ -12,7 +12,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   // Use relative paths so it works at site root *and* under IIS virtual directories
-  base: "./",
+  base: "/mis_dashboard/",
   build: {
     outDir: "dist", // keep 'dist' (IIS will serve from this folder)
     emptyOutDir: true,
