@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import styles from "./DataTable.module.css";
-import Skeleton from "../loading/skeleton";
+import Skeleton from "../loading/Skeleton";
 
 type Row = { month: string; value: number };
 interface DataTableProps {
@@ -25,7 +25,11 @@ const DataTable: React.FC<DataTableProps> = React.memo(
         v.push(<td key={`v-${key}`}>{value.toLocaleString("en-US")}</td>);
       }
 
-      return { headerCells: h, valueCells: v, columnCount: Math.max(data.length, 1) };
+      return {
+        headerCells: h,
+        valueCells: v,
+        columnCount: Math.max(data.length, 1),
+      };
     }, [data]);
 
     return (
@@ -35,7 +39,12 @@ const DataTable: React.FC<DataTableProps> = React.memo(
             <tr className={styles.loadingRow}>
               <td colSpan={columnCount}>
                 <div className={styles.loadingCell}>
-                  <Skeleton variant="dots" intervalMs={600} overlay={false} as="div" />
+                  <Skeleton
+                    variant="dots"
+                    intervalMs={600}
+                    overlay={false}
+                    as="div"
+                  />
                 </div>
               </td>
             </tr>

@@ -6,7 +6,7 @@ import { useQuoteConversion } from "./useQuoteConversion";
 import { PieChart } from "../../ui/graph/PieChart";
 import { TableModal } from "../../ui/table/TableModal";
 import { conversion_table_columns } from "../../ui/table/table_columns";
-import Skeleton from "../../ui/loading/skeleton";
+import Skeleton from "../../ui/loading/Skeleton";
 
 const QuoteConversion: React.FC = () => {
   const {

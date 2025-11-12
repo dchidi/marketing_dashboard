@@ -17,7 +17,7 @@ import { openDownloadGET } from "../../../util/download";
 import {
   BASE_URL,
   SALES_DATA_URL,
-  SALES_SUMMARY_URL,
+  // SALES_SUMMARY_URL,
 } from "../../../api_lib/api_urls";
 import { useFilterCtx } from "../../../context/FilterContext";
 

@@ -7,7 +7,7 @@ import { TwoLineChart } from "../../ui/graph/LineGraph";
 import { TbMinusVertical } from "react-icons/tb";
 import { TableModal } from "../../ui/table/TableModal";
 import { quote_receive_mth_columns } from "../../ui/table/table_columns";
-import Skeleton from "../../ui/loading/skeleton";
+import Skeleton from "../../ui/loading/Skeleton";
 import type { CardProps } from "../pet_type/types";
 
 const ReceivedMethod: React.FC<CardProps> = ({

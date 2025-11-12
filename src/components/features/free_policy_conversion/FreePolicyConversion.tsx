@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./FreePolicyConversion.module.css";
 import { Row, Column } from "../../layouts/row_col/RowCol";
 import Card from "../../layouts/card/Card";
-import { PieChart } from "../../ui/graph/PieChart";
+// import { PieChart } from "../../ui/graph/PieChart";
 import { TableModal } from "../../ui/table/TableModal";
 import { fp_columns } from "../../ui/table/table_columns";
-import Skeleton from "../../ui/loading/skeleton";
+import Skeleton from "../../ui/loading/Skeleton";
 import { useFreePolicyConversion } from "./useFreePolicyConversion";
 
 const FreePolicyConversion: React.FC = () => {
@@ -14,11 +14,11 @@ const FreePolicyConversion: React.FC = () => {
     by_pet_type,
     by_channel,
     fmt_total,
-    dataWindow,
+    // dataWindow,
     dataTableQuery,
     isLoadingSummary,
-    isSuccessSummary,
-    errorSummary,
+    // isSuccessSummary,
+    // errorSummary,
     hasRequested,
     isOpen,
     closeModal,

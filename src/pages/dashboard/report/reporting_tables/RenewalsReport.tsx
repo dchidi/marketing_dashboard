@@ -1,15 +1,16 @@
-import { useQuote } from "../../../../components/features/quote/useQuoteByPetType";
-import Table from "../../../../components/ui/table/Table";
+// import { useQuote } from "../../../../components/features/quote/useQuoteByPetType";
+// import Table from "../../../../components/ui/table/Table";
 
 const RenewalReport = () => {
-  const { quoteTableData, columns } = useQuote();
+  // const { quoteTableData, columns } = useQuote();
   return (
-    <Table
-      columns={columns}
-      data={quoteTableData}
-      enableSorting={true}
-      enableFiltering={true}
-    />
+    <></>
+    // <Table
+    //   columns={columns}
+    //   data={quoteTableData}
+    //   enableSorting={true}
+    //   enableFiltering={true}
+    // />
   );
 };
 export default RenewalReport;

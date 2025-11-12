@@ -74,8 +74,13 @@ export const useQuoteConversion = (): useQuoteProps | any => {
     quoteConversionSummary.isLoading || quoteConversionSummary.isFetching;
   const isSuccessSummary = quoteConversionSummary.isSuccess;
   const errorSummary = quoteConversionSummary.error;
-  const { meta, total_quotes, converted, conversion_percent, not_converted } =
-    quoteConversionSummary?.data || {};
+  const {
+    meta,
+    // total_quotes,
+    converted,
+    conversion_percent,
+    not_converted,
+  } = quoteConversionSummary?.data || {};
 
   const dataWindow = useMemo(
     () =>

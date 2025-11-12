@@ -78,22 +78,22 @@ export const useQuoteReport = (): QuoteReportProps => {
   ];
   // Fetch data from global state
   const tableData: QuoteProps[] = [
-    {
-      id: 1,
-      country: "Australia",
-      brand: "Petcover",
-      quote_number: "PAW-2023-1001",
-      quote_status: "Live",
-      quote_start_date: "2023-01-15",
-      quote_end_date: "2023-12-15",
-      client_name: "Sarah Johnson",
-      email: "sarah.j@example.com",
-      phone_number: "+1 555-123-4567",
-      pet_name: "Max",
-      pet_type: "Dog",
-      pet_breed: "Golden Retriever",
-      pet_dob: 2018,
-    },
+    // {
+    //   id: 1,
+    //   country: "Australia",
+    //   brand: "Petcover",
+    //   quote_number: "PAW-2023-1001",
+    //   quote_status: "Live",
+    //   quote_start_date: "2023-01-15",
+    //   quote_end_date: "2023-12-15",
+    //   client_name: "Sarah Johnson",
+    //   email: "sarah.j@example.com",
+    //   phone_number: "+1 555-123-4567",
+    //   pet_name: "Max",
+    //   pet_type: "Dog",
+    //   pet_breed: "Golden Retriever",
+    //   pet_dob: 2018,
+    // },
   ];
 
   return { tableData, columns };

@@ -1,14 +1,15 @@
-import Table from "../../../../components/ui/table/Table";
-import { useQuoteReport } from "../hooks/useQuoteReport";
+// import Table from "../../../../components/ui/table/Table";
+// import { useQuoteReport } from "../hooks/useQuoteReport";
 import { Column } from "../../../../components/layouts/row_col/RowCol";
-import Filters from "../../../../components/features/filters/Filters";
+// import Filters from "../../../../components/features/filters/Filters";
 
 const QuoteReport: React.FC = () => {
-  const { tableData, columns } = useQuoteReport();
+  // const { tableData, columns } = useQuoteReport();
 
   return (
     <Column>
-      <Filters />
+      TESTING
+      {/* <Filters />
       <Table
         columns={columns}
         data={tableData}
@@ -16,7 +17,7 @@ const QuoteReport: React.FC = () => {
         enableFiltering={true}
         tableTitle="Quote table"
         downloadFileName="QuoteTable_"
-      />
+      /> */}
     </Column>
   );
 };

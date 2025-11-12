@@ -32,7 +32,7 @@ export const BRANDS = [
   },
   {
     id: 2,
-    code: "pc",
+    code: "petcover",
     name: "Petcover",
     country_code: ["all", "au", "nz", "de", "at"],
   },
@@ -42,7 +42,7 @@ export const BRANDS = [
     name: "BPIS",
     country_code: ["all", "uk"],
   },
-  { id: 4, code: "pet_id", name: "PetID", country_code: ["all", "uk"] },
+  { id: 4, code: "petid", name: "PetID", country_code: ["all", "uk"] },
   { id: 5, code: "bb", name: "BB Commercial", country_code: ["all", "uk"] },
   { id: 6, code: "ed", name: "Exotic Direct", country_code: ["all", "uk"] },
 ];

@@ -42,7 +42,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     success: false,
   });
 
-  // console.log(state, isPending);
+  console.log(state, isPending);
   return (
     <form
       action={formAction}
@@ -63,7 +63,9 @@ const DatePicker: React.FC<DatePickerProps> = ({
         defaultValue={today}
       />
       <Row className={styles.row} gap="10px">
-        <button className={styles.btn}>OK</button>
+        <button className={styles.btn} disabled={isPending}>
+          OK
+        </button>
         <button className={styles.btnCancel} onClick={close} type="button">
           Cancel
         </button>

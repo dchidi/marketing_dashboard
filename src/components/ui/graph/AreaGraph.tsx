@@ -3,12 +3,12 @@ import {
   AreaChart,
   Area,
   XAxis,
-  CartesianGrid,
+  // CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Legend,
+  // Legend,
 } from "recharts";
-import Skeleton from "../loading/skeleton";
+import Skeleton from "../loading/Skeleton";
 
 type SeriesKey = string;
 
@@ -24,7 +24,7 @@ type AreaGraphProps = {
   areaOpacity?: number; // 0..1 when solidFill=true
   // Customize gradient behavior when solidFill is false
   gradientStartOpacity?: number; // default 0.9 (top)
-  gradientEndOpacity?: number;   // default 0.0 (bottom)
+  gradientEndOpacity?: number; // default 0.0 (bottom)
 };
 
 // const palette = ["#8884d8", "#ff8042", "#ffc658", "#ff8042"];
@@ -43,8 +43,11 @@ const AreaGraph: React.FC<AreaGraphProps> = ({
 }) => {
   // Create a per-instance unique prefix for gradient ids to avoid DOM id collisions
   // across multiple charts on the same page, and sanitize series keys for use in ids.
-  const uid = (React as any).useId ? (React as any).useId() : Math.random().toString(36).slice(2);
-  const makeId = (key: string) => `${uid}-area-fill-${String(key).replace(/[^A-Za-z0-9_-]/g, "_")}`;
+  const uid = (React as any).useId
+    ? (React as any).useId()
+    : Math.random().toString(36).slice(2);
+  const makeId = (key: string) =>
+    `${uid}-area-fill-${String(key).replace(/[^A-Za-z0-9_-]/g, "_")}`;
 
   return (
     <div style={{ width: "100%", height }}>
@@ -62,9 +65,24 @@ const AreaGraph: React.FC<AreaGraphProps> = ({
                   const id = makeId(key);
                   const color = colorPalette[idx % colorPalette.length];
                   return (
-                    <linearGradient key={id} id={id} x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor={color} stopOpacity={gradientStartOpacity} />
-                      <stop offset="95%" stopColor={color} stopOpacity={gradientEndOpacity} />
+                    <linearGradient
+                      key={id}
+                      id={id}
+                      x1="0"
+                      y1="0"
+                      x2="0"
+                      y2="1"
+                    >
+                      <stop
+                        offset="5%"
+                        stopColor={color}
+                        stopOpacity={gradientStartOpacity}
+                      />
+                      <stop
+                        offset="95%"
+                        stopColor={color}
+                        stopOpacity={gradientEndOpacity}
+                      />
                     </linearGradient>
                   );
                 })}

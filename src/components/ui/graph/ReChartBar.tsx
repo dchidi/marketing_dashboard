@@ -8,12 +8,12 @@ import {
   Cell,
 } from "recharts";
 
-export default function PetQuoteBarChart(q) {
+export default function PetQuoteBarChart(q: any) {
   const data = q.data;
-  const max = Math.max(...data.map((d) => d.value));
+  const max = Math.max(...data.map((d: any) => d.value));
   const maxHeight = 250;
 
-  const scaledData = data.map((item) => ({
+  const scaledData = data.map((item: any) => ({
     ...item,
     height: (item.value / max) * maxHeight,
     label:
@@ -31,7 +31,7 @@ export default function PetQuoteBarChart(q) {
           <XAxis dataKey="name" stroke="#ccc" />
           <YAxis hide />
           <Bar dataKey="height" radius={[6, 6, 0, 0]}>
-            {scaledData.map((entry, index) => (
+            {scaledData.map((_: any, index: any) => (
               <Cell
                 key={`cell-${index}`}
                 fill={colors[index % colors.length]}
