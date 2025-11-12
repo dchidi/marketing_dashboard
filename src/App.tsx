@@ -20,6 +20,9 @@ const App: React.FC = () => {
 
         {/* Protected routes */}
         <Route element={<RequireAuth />}>
+          {/* when authed and you hit /mis_dashboard/, go to /mis_dashboard/dashboard */}
+          <Route index element={<Navigate to="/dashboard" replace />} />
+
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<Navigate to="home" replace />} />
