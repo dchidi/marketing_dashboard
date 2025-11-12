@@ -1,4 +1,5 @@
-export const BASE_URL = "http://127.0.0.1:8000/api/v1";
+// export const BASE_URL = "http://127.0.0.1:8000/api/v1";
+export const BASE_URL = "/mis_dashboard/api/v1";
 
 // Quote
 export const QUOTE_SUMMARY_URL = "/quote/quote_summary";
