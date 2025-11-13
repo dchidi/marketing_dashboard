@@ -1,1 +1,0 @@
-import{j as r}from"./index-BQFCShGt.js";const a="_row_34qbn_1",n={row:a},l=({children:s,className:o,gap:t,onClick:e})=>r.jsx("div",{className:`${n.row} ${o} `,style:{gap:t},onClick:e,children:s}),m=({children:s,className:o,gap:t})=>r.jsx("div",{className:`${n.column} ${o} `,style:{gap:t},children:s});export{m as C,l as R};
