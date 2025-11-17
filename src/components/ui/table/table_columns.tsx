@@ -617,6 +617,11 @@ export const sales_columns: ColumnDef<any>[] = [
     cell: (info) => info.getValue(),
   },
   {
+    accessorKey: "QuoteCreatedDate",
+    header: "Quote CreatedDate",
+    cell: (info) => info.getValue(),
+  },
+  {
     accessorKey: "SaleMethod",
     header: "Receive Method",
     cell: (info) => {

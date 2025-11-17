@@ -16,7 +16,7 @@ export const getFromLocalStorage = <T,>(
 
     let parsed = JSON.parse(item);
 
-    // if filter validation date has expired, update storage
+    // if filter validation date has expired, reset store
     if (!parsed?.filterValidUntil || parsed.filterValidUntil < current_date) {
       parsed = {
         ...parsed,
@@ -24,6 +24,11 @@ export const getFromLocalStorage = <T,>(
         start_date: yesterday,
         end_date: yesterday,
         date_code: "yesterday",
+        brand: "all",
+        country: "all",
+        pet_type: "all",
+        limit: 50,
+        skip: 0,
       };
       saveToLocalStorage(key, parsed);
     }

@@ -111,7 +111,7 @@ const Filters = () => {
         start_date: start_of_month,
         end_date: current_date,
         skip: 0,
-        limit: 100,
+        limit: 50,
       };
     }
 
@@ -124,7 +124,10 @@ const Filters = () => {
       selectedCountryCodes?.some((code) => brand.country_code.includes(code))
     );
     setBrandList(updatedBrands);
-    saveFilter({ ["country"]: selectedCountryCodes.join(",") });
+    saveFilter({
+      ["country"]: selectedCountryCodes.join(","),
+      ["brand"]: updatedBrands.map((brand) => brand.code).join(","),
+    });
   };
   const brandHandler = (selectedBrandCodes: string[]) => {
     saveFilter({ ["brand"]: selectedBrandCodes.join(",") });

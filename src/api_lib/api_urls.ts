@@ -13,6 +13,7 @@ export const QUOTE_CONVERSION_DATA_URL = "/quote/quote_conversion_data";
 export const QUOTE_RECEIVED_URL = "/quote/quote_rmth_same_period_summary";
 export const QUOTE_RECEIVED_DATA_URL = "/quote/quote_rmth_same_period_report";
 
+// TODO:: Check if it is not being used and remove it both from here and from the backend.
 export const POLICY_SUMMARY_URL = "/policy/policy_summary";
 export const POLICY_DATA_URL = "/policy/policy_data";
 
